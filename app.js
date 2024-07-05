@@ -6,6 +6,9 @@ var logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const authMiddleware = require('./middleware/auth');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 var indexRouter = require('./routes/index');
 const authRoutes = require('./routes/auth');
@@ -17,7 +20,7 @@ var app = express();
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://faeznz:faeznz@data.h3xudui.mongodb.net/DPSI?retryWrites=true&w=majority');
+mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
   console.log('Connected to MongoDB');
@@ -38,7 +41,7 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/auth', authRoutes);
-app.use('/items', authMiddleware,itemRoutes);
+app.use('/items', authMiddleware, itemRoutes);
 app.use('/reports', authMiddleware, reportRoutes);
 app.use('/users', authMiddleware, userRoutes);
 
