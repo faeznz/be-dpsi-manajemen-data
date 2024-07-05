@@ -2,6 +2,7 @@
   "name": "be-dpsi-manajemen-data",
   "version": "0.0.0",
   "private": true,
+  "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
