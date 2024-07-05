@@ -15,7 +15,6 @@
     "jade": "~1.11.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.4",
-    "morgan": "~1.9.1",
-    "uglify-js": "^3.18.0"
+    "morgan": "~1.9.1"
   }
 }
